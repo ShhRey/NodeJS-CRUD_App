@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const { ObjectId } = require('mongodb');
 require('dotenv').config();
 
@@ -35,7 +34,14 @@ const userSchema = new mongoose.Schema({
         type: ObjectId,
     },
     referral_count: {
-        type: Number
+        type: Number,
+        default: 0,
+    },
+    last_login_ip: {
+        type: String,
+    },
+    last_login_device: {
+        type: String,
     },
     createdAt: {
         type: Date, 
